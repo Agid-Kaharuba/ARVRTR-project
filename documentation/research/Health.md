@@ -1,4 +1,3 @@
-*bold*, **italic**, `code`.
 ### Health
 - The human visual systems relies on various sources of information to interpret 3D shapes and the relative positions of objects. Cues mainly rely on a single or both eyes. 
 - In order to ensure maximum confort its important to mimic how we naturally see the world to reduce any form of fatigue such as eyestrain as well as neck and arm fatigue.

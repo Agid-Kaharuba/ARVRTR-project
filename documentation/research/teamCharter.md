@@ -1,4 +1,4 @@
-###Acceptance Testing For Product 
+### Acceptance Testing For Product 
 
 Like most major projects, the testing will be accomplished through ISTQB (), the main criteria for acceptance testing is to determine if the user requirements have been successfully met. The plan for this subject is to complete each component testing before further delivery to minimise any future issues that could delay completion of tasks. Object–oriented programming methods and similar units will be isolated for test and subjected to bug fixes early on. As well as end-to-end testing for continuous integration.  
 

@@ -103,3 +103,7 @@ Content-Type: application/json
     "name": "testTwo",
     "password": "verynice"
 }
+
+### 
+GET http://localhost:4000/ingredient
+

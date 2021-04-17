@@ -1,4 +1,7 @@
-import React from 'react';
+//import React from 'react';
+import React, { useState } from 'react'; //hook to add react state to components
+import { API_HOST } from "../../helpers/api";
+import axios from 'axios'; //make HTTP/XMLHTTP requests
 
 // IMPORT COMPONENTS
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -32,12 +35,30 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LogIn() {
     const classes = useStyles(); //using hook to create classes object
+    //array destructuring
+    const [loginState, setLoginStage] = useState({username:"", password:""});
     let history = useHistory();
 
     const signupClick = () => {
         history.push('/signup')
     }
+
+    const handleChange = async (event) => {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        setLoginState({
+            ...loginState, [name]: value,
+        }); 
+    }
     
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        console.log(loginState);
+        var res = await axios.post('${API_HOST}/auth/login', loginState);
+        console.log(res.data);
+    }
+
     return (
         <Container component = "main" maxWidth = "xs"> {/*set container size*/}
             <CssBaseline/> {/*reset styles to a consistent baseline*/}

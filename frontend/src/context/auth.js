@@ -5,6 +5,7 @@ const localState = JSON.parse(localStorage.getItem("authState"));
 const initialState = {
   authenticated: false,
   user: undefined,
+  token: undefined
 };
 
 const reducer = (authState, newAuthState) => {

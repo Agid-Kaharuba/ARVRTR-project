@@ -33,6 +33,21 @@ export const AuthRoute = (app: Express, controller: AuthController) => {
      *        password:
      *         type: string
      *         example: password123
+     *        firstname:
+     *         type: string
+     *         example: john
+     *        lastname:
+     *         type: string
+     *         example: smith
+     *        email:
+     *         type: string
+     *         example: test@test.com
+     *        staffid:
+     *         type: string
+     *         example: abc123
+     *        isSupervisor:
+     *         type: boolean
+     *         example: true
      *   responses:
      *    200:
      *     description: Success

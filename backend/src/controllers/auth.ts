@@ -25,6 +25,8 @@ export default class AuthController {
               const token = jwt.sign(jwtPayload, `${process.env.TOKEN_SECRET}`, {
                   expiresIn: "24h"
               });
+              // @ts-ignore
+              userIn.password = undefined;
               ResponseService.successResponse(res, {user: userIn, token: token});
             }
             else {
@@ -40,12 +42,22 @@ export default class AuthController {
     public async create(req: Request, res: Response) {
         const {
             username,
-            password
+            password,
+            firstname,
+            lastname,
+            email,
+            stafid,
+            isSupervisor
         } = req.body;
 
         const newUserRequest = new User({
             username,
-            password
+            password,
+            firstname,
+            lastname,
+            email,
+            stafid,
+            isSupervisor
         } as any);
         newUserRequest.save((err: MongoError) => {
 			if (err) {

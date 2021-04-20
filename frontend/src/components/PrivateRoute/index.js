@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "../../context/auth";
 import { Route, Redirect } from "react-router-dom";
-import api from "../../helpers/api"
+import isAuthenticated from "../../helpers/auth/isAuthenticated"
 
 export default class PrivateRoute extends React.Component {
     static contextType = AuthContext;
@@ -12,22 +12,8 @@ export default class PrivateRoute extends React.Component {
         };
     }
 
-    async isAuthenticated() {
-        if (this.context.authState.authenticated) {
-            try {
-                const res = await api.auth.verify(this.context.authState.token);
-                return true;
-            }
-            catch (err) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    };
-
     async componentWillMount() {
-        const isAuth = await this.isAuthenticated();
+        const isAuth = await isAuthenticated(this.context.authState, this.context.setAuthState);
         this.setState({ authenticated: isAuth })
     }
 

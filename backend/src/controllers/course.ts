@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Course from "../model/course";
+import Progress from "../model/progress";
 import ResponseService from "../helpers/response"
 import { MongoError } from "mongodb";
 
@@ -39,7 +40,6 @@ export default class CourseController {
 				ResponseService.successResponse(res, newCourseRequest);
 			}
 		});
-        
     }
 
     public async update(req: Request, res: Response) {
@@ -62,6 +62,28 @@ export default class CourseController {
         }
         catch (err) {
             ResponseService.mongoNotFoundResponse(res, err);
+        }
+    }
+
+    public async submitProgress(req: Request, res: Response) {
+		const body = req.body;
+		const newProgressRequest = new Progress(body as any);
+		newProgressRequest.save((err: MongoError) => {
+			if (err) {
+				ResponseService.mongoErrorResponse(res, err);
+			} else {
+				ResponseService.successResponse(res, newProgressRequest);
+			}
+		});
+    }
+
+    public async getAllProgress(req: Request, res: Response) {
+        try {
+            const progresses = await Progress.find();
+            ResponseService.successResponse(res, progresses);
+        }
+        catch (err) {
+            ResponseService.mongoErrorResponse(res, err);
         }
     }
 }

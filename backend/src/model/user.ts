@@ -18,6 +18,26 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  firstname: {
+    type: String,
+    required: false
+  },
+  lastname: {
+    type: String,
+    required: false
+  },
+  email: {
+    type: String,
+    required: false
+  },
+  staffid: {
+    type: String,
+    required: false
+  },
+  isSupervisor: {
+    type: Boolean,
+    required: true
+  }
 },
 {collection: 'users'})
 

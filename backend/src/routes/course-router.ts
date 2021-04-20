@@ -4,10 +4,42 @@ import CourseController from "../controllers/course";
 export const CourseRoute = (app: Express, controller: CourseController) => {
     /**
      * @swagger
-     * /user:
+     * /course/progress:
+     *  post:
+     *   description: Post a progress update
+     *   tags: [Course, Progress]
+     *   requestBody:
+     *    required: true,
+     *    content:
+     *     application/json:
+     *      schema:
+     *       type: object
+     *       properties:
+     *        data:
+     *         type: object
+     *         example: {"any":"thing"}
+     *   responses:
+     *    200:
+     *     description: Success
+     */
+    app.post("/course/progress", controller.submitProgress);
+    /**
+     * @swagger
+     * /course/progress:
+     *  get:
+     *   description: Get all progress updates
+     *   tags: [Course, Progress]
+     *   responses:
+     *    200:
+     *     description: Success
+     */
+    app.get("/course/progress", controller.getAllProgress);
+    /**
+     * @swagger
+     * /course:
      *  get:
      *   description: Get all the courses
-     *   tags: [User]
+     *   tags: [Course]
      *   responses:
      *    200:
      *     description: Success

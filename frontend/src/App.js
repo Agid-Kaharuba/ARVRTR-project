@@ -6,11 +6,12 @@ import { ThemeProvider } from "@material-ui/core/styles";
 // IMPORT COMPONENTS
 import ManageNavigation from "./components/manageNavigation";
 import PrivateRoute from "./components/PrivateRoute";
+import SignOut from "./components/signout";
 
 // IMPORT PAGES
 import HomePage from "./pages/home/home.js";
 import Dashboard from "./pages/dashboard/dashboard.js";
-import CreateNewTraining from './pages/supervisorCreateNewTraining/supervisorCreateNewTraining.js';
+import CreateNewCourse from './pages/supervisor/CreateCourse';
 import EmployeeProfile from "./pages/profile/employeeProfile";
 import LogIn from "./pages/login/login.js";
 import SignUp from "./pages/signup/signup.js";
@@ -38,11 +39,11 @@ function AppRouter(props) {
         exact={true}
         component={Dashboard} />
 
-      <PrivateRoute path="/dashboard/create-new-training"
+      <PrivateRoute path="/dashboard/create"
         exact={true}
-        component={CreateNewTraining} />
+        component={CreateNewCourse} />
 
-      <PrivateRoute path="/employee-profile"
+      <PrivateRoute path="/profile"
         exact={true}
         component={EmployeeProfile} />
 
@@ -54,6 +55,11 @@ function AppRouter(props) {
       <Route path="/signup"
         exact={true}
         component={SignUp}>
+      </Route>
+
+      <Route path="/signout"
+        exact={true}
+        component={SignOut}>
       </Route>
 
       <Route path="/"

@@ -1,26 +1,25 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import { AuthContext } from "../../context/auth";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/auth";
 import Navigation from "../navigation";
-// import StudentNavigation from "../studentNavigation";
-// import TeacherNavigation from "../teacherNavigation";
+import AuthNavigation from "../navigation/auth";
+import isAuthenticated from "../../helpers/auth/isAuthenticated"
 
-export default function ManageNavigation() {
-  // const { authState, setAuthState } = React.useContext(AuthContext);
+export default class ManageNavigation extends React.Component {
+  static contextType = AuthContext;
 
-  // if (authState.authenticated) {
-  //   if (
-  //     authState.user.claims !== undefined &&
-  //     (authState.user.claims.admin || authState.user.claims.teacher)
-  //   ) {
-  //     return (<TeacherNavigation/>)
-  //   } else {
-  //     // If the authenticated user does not have a teacher
-  //     // claim assume its a assume they are a student user
-  //     return (<StudentNavigation/>)
-  //   }
-  // } else {
-  //   // Display unauthenticated guest nav for everyone
-    return <Navigation />
-  // }
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    console.log(this.context.authState.authenticated);
+    if (this.context.authState.authenticated){
+      return <AuthNavigation />
+    }
+    else {
+      return <Navigation />
+    }
+  
+  }
 }

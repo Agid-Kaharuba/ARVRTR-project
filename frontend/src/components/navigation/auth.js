@@ -17,7 +17,7 @@ import Box from "@material-ui/core/Box";
 import { Divider, ListItemIcon } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import {grey, purple} from '@material-ui/core/colors'
-//import { AuthContext } from "../../context/auth";
+import { AuthContext } from "../../context/auth";
 const drawerWidth = 240;
 const history = createBrowserHistory();
 
@@ -101,20 +101,26 @@ const MyDrawer = withStyles(styles)(
           >
             <ListItemText>Home</ListItemText>
           </ListItem>
-          <ListItem
-            button
-            component={Link}
-            to="/login"
-            onClick={onItemClick("LoginPage")}
-          >
-            <ListItemText>Login</ListItemText>
+          <ListItem 
+          button 
+          component={Link}
+          to="/dashboard"
+          onClick={onItemClick("Dashboard")}>
+            <ListItemText>Dashboard</ListItemText>
           </ListItem>
           <ListItem 
           button 
           component={Link}
-          to="/signup"
-          onClick={onItemClick("Signup")}>
-            <ListItemText>Signup</ListItemText>
+          to="/profile"
+          onClick={onItemClick("Profile")}>
+            <ListItemText>Profile</ListItemText>
+          </ListItem>
+          <ListItem 
+          button 
+          component={Link}
+          to="/signout"
+          onClick={onItemClick("SignOut")}>
+            <ListItemText>Sign Out</ListItemText>
           </ListItem>
         </List>
       </Drawer>

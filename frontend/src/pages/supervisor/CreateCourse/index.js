@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState} from "react";
+import { Link, useHistory } from "react-router-dom";
 
 // IMPORT COMPONENTS
-import { Box, Button, Typography, Divider, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from "@material-ui/core";
+import { Box, Button, Typography, Divider, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@material-ui/core";
 import { DropzoneArea } from 'material-ui-dropzone'
 import { makeStyles } from "@material-ui/core/styles";
 
 // import { Link } from "react-router-dom";
-// import { AuthContext } from "../../context/auth";
+import { AuthContext } from "../../../context/auth";
+import api from "../../../helpers/api";
 
 
 const useStyles = makeStyles({
@@ -36,11 +38,27 @@ const rows = [
 
 export default function CreateNewTrainingPage() {
   const classes = useStyles();
-//   const { authState, setAuthState } = React.useContext(AuthContext);
+  const [formState, setFormState] = useState({name: "", description: ""});
+  const { authState, setAuthState } = React.useContext(AuthContext);
+  let history = useHistory();
 
-//   if (authState.authenticated) {
-//     return authState.user.claims.teacher ? <Redirect to="/teacher/subjectList" />: <Redirect to="/student/dashboard" />; 
-//   } else {
+  const handleChange = async (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    setFormState({
+      ...formState, [name]: value,
+    });
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    api.course.create(authState.token, formState);
+    history.push('/dashboard');
+  }
+
   return (
     <div>
       <Box m={5}>
@@ -58,11 +76,11 @@ export default function CreateNewTrainingPage() {
           </Typography>
         </Box>
 
-        <DropzoneArea/>
+        <DropzoneArea />
         <Box m={2}>
           <Button variant="contained" component="label">
             Upload Photo
-            <input type="file" hidden/>
+            <input type="file" hidden />
           </Button>
         </Box>
       </Box>
@@ -76,21 +94,25 @@ export default function CreateNewTrainingPage() {
 
         <Box m={2}>
           <TextField
-              id="filled-multiline-static"
-              label="Enter the Training's Name"
-              fullWidth='true'
-              variant="filled"
-            />
+            id="filled-multiline-static"
+            label="Enter the Training's Name"
+            fullWidth='true'
+            variant="filled"
+            name="name"
+            onChange={handleChange}
+          />
         </Box>
         <Box m={2}>
           <TextField
-              id="filled-multiline-static"
-              label="Enter the Training's Description"
-              multiline
-              rows={4}
-              fullWidth='true'
-              variant="filled"
-            />
+            id="filled-multiline-static"
+            label="Enter the Training's Description"
+            multiline
+            rows={4}
+            fullWidth='true'
+            variant="filled"
+            name="description"
+            onChange={handleChange}
+          />
         </Box>
       </Box>
 
@@ -125,19 +147,19 @@ export default function CreateNewTrainingPage() {
           </Table>
         </TableContainer>
       </Box>
-      
+
       <Box justifyContent='center' display="flex" m={6}>
         <Box mr={6}>
-          <Button variant="contained"color="secondary">
-          Back
+          <Button variant="contained" color="secondary" component={Link} to="/dashboard">
+            Back
           </Button>
         </Box>
         <Box>
-          <Button variant="contained" color="primary">
-          Save
+          <Button variant="contained" color="primary" onClick={handleSubmit}>
+            Save
           </Button>
         </Box>
       </Box>
     </div>
-    )
+  )
 }

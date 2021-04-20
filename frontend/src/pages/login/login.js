@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 
 // IMPORT COMPONENTS
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,10 +10,10 @@ import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { Alert } from "@material-ui/lab";
-import { useHistory } from 'react-router-dom';
 
 import api from "../../helpers/api";
 import { AuthContext } from "../../context/auth";
+import isAuthenticated from "../../helpers/auth/isAuthenticated"
 
 //creating the react hook
 const useStyles = makeStyles((theme) => ({
@@ -148,4 +149,71 @@ export default function LogIn() {
         </div>
         </Container>
     );
+  };
+
+  if (authState.authenticated) {
+		return <Redirect to="/dashboard" />;
+	}
+
+  return (
+    <Container component="main" maxWidth="xs"> {/*set container size*/}
+      <CssBaseline /> {/*reset styles to a consistent baseline*/}
+      <div className={classes.paper}>
+        <Typography variant="h3">LOGIN</Typography>
+
+        <form className={classes.form} onSubmit={handleLogin}>
+          <TextField
+            label="Username"
+            variant="outlined"
+            margin="normal"
+            name="username"
+            id="username"
+            required //must have input to submit the form
+            fullWidth
+            onChange={handleChange}
+          />
+          {/* TODO: implement forgot username */}
+          {/* <Link href="#" variant="body2">Forgot username?</Link> */}
+
+          <TextField
+            label="Password"
+            variant="outlined"
+            margin="normal"
+            name="password"
+            id="password"
+            type="password" //hide password entered
+            required
+            fullWidth
+            onChange={handleChange}
+          />
+          {/* TODO: implement forgot password */}
+          {/* <Link href="#" variant="body2">Forgot password?</Link> */}
+
+          {loginError !== undefined ? buildLoginError() : errorSpace()}
+
+          <Button
+            type="submit"
+            className={classes.submit}
+            variant="contained"
+            color="primary"
+            fullWidth
+          >
+            Login
+          </Button>
+
+          <Button
+            type="submit"
+            className={classes.submit}
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={signupClick}
+          >
+            Sign Up
+          </Button>
+        </form>
+
+      </div>
+    </Container>
+  );
 }

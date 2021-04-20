@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 // IMPORT COMPONENTS
 import { Box, Grid, Container, Button, Typography, Paper, Avatar } from "@material-ui/core";
@@ -7,8 +8,8 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 // IMPORT IMAGES
 import VRLogo from '../../images/vr-glasses-white.png';
 import bbt from '../../images/bbt.jpg';
-import burger from '../../images/burger.jpg';
-import pizza from '../../images/pizza.jpg';
+import burger from '../../images/burger2.jpg';
+import pizza from '../../images/pizza2.jpg';
 import Andrew from '../../images/profile-photos/andrew-do.jpg';
 import Vanisha from '../../images/profile-photos/vanisha-singh.png';
 import Andy from '../../images/profile-photos/andy-le.jpg';
@@ -38,6 +39,7 @@ const profileStyles = makeStyles((theme) =>  ({
 }));
 
 export default function HomePage() {
+  const history = useHistory();
 //   const { authState, setAuthState } = React.useContext(AuthContext);
   const profiles = profileStyles();
 //   if (authState.authenticated) {
@@ -71,18 +73,18 @@ export default function HomePage() {
             </Grid>
 
             <Grid item>
-              <Button variant='contained' color='primary'>
+              <Button variant='contained' color='primary' onClick={()=>history.push('/login')}>
                 Get Started!
               </Button>
             </Grid>
             <br></br>
-            <Grid container spacing={3} direction="row" justify="space-around" alignItems="center" >
+            <Grid container direction="row" justify="space-around" alignItems="center" >
               <img src={bbt} width='25%' height='20%'/>
               <img src={burger} width='25%' height='20%'/>
               <img src={pizza} width='25%' height='20%'/>
             </Grid>
             <br></br>
-            <Grid container spacing={1} direction="column" color='white' alignItems='flex-start'>
+            <Grid container direction="column" color='white' alignItems='flex-start'>
             <Container>
               <Box color="white">
             <h2>Project Outline</h2>
@@ -179,8 +181,8 @@ export default function HomePage() {
                   alignItems='center'
                   justify='center'>
                     <Avatar src={Andy} className={profiles.large}/>
-                    <WhiteTextTypography style={{fontWeight: '600', fontSize: '1.2rem'}}>Andy Le</WhiteTextTypography>
-                    <WhiteTextTypography>Scrum Master</WhiteTextTypography>
+                    <WhiteTextTypography style={{fontWeight: '600', fontSize: '1.2rem'}}>Andy Lee</WhiteTextTypography>
+                    <WhiteTextTypography>Unity Dev / Scrum Master</WhiteTextTypography>
                   </Grid>
                 </Grid>
                 <Grid item>

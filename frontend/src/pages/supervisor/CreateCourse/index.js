@@ -59,6 +59,11 @@ export default function CreateNewTrainingPage() {
     history.push('/dashboard');
   }
 
+  //launch XR training via web, STILL TESTING
+  const handleLaunchXR = () => {
+    history.push('xrt-training://')
+  }
+
   return (
     <div>
       <Box m={5}>
@@ -157,6 +162,13 @@ export default function CreateNewTrainingPage() {
         <Box>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
             Save
+          </Button>
+        </Box>
+
+        {/* testing launch XR button here, will fix once its working */}
+        <Box>
+        <Button variant="contained" color="primary" onClick={handleLaunchXR}>
+            Launch XR
           </Button>
         </Box>
       </Box>

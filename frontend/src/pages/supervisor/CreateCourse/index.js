@@ -61,7 +61,8 @@ export default function CreateNewTrainingPage() {
 
   //launch XR training via web, STILL TESTING
   const handleLaunchXR = () => {
-    history.push('xrt-training://')
+    //history.push('xrt-training://')
+    //<Redirect to='xrt-training://'>
   }
 
   return (
@@ -165,9 +166,11 @@ export default function CreateNewTrainingPage() {
           </Button>
         </Box>
 
+
+        {/* onClick={handleLaunchXR} */}
         {/* testing launch XR button here, will fix once its working */}
         <Box>
-        <Button variant="contained" color="primary" onClick={handleLaunchXR}>
+        <Button variant="contained" color="primary" component={Link} to="xrt-training://">
             Launch XR
           </Button>
         </Box>

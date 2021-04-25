@@ -20,6 +20,7 @@ import SignUp from "./pages/signup/signup.js";
 
 // IMPORT CONTEXT
 import { AuthProvider } from "./context/auth";
+import TasksList from './pages/taskslist/taskslist';
 // import Signout from "./helpers/auth/signout.js";
 
 function AppProvider(props) {
@@ -60,6 +61,11 @@ function AppRouter(props) {
       <Route path="/signout"
         exact={true}
         component={SignOut}>
+      </Route>
+
+      <Route path="/taskslist"
+        exact={true}
+        component={TasksList}>
       </Route>
 
       <Route path="/"

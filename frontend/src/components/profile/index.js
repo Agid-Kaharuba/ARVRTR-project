@@ -19,19 +19,21 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(0.5)
   },
   image: {
-    height: 120,
-    width: 120,
+    height: 160,
+    width: 160,
     borderRadius: 100,
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
   },
   imageUpload: {
     display: "none",
-    // marginBottom: theme.spacing(0.1)
   },
   container: {
     alignItems: "center",
     display: 'flex',
     flexDirection: 'column',
+  },
+  uploadBtn: {
+    marginLeft: theme.spacing(4)
   }
 }));
 
@@ -41,15 +43,16 @@ function ProfilePicture(props) {
   // There were declared before this component was pulled from being hardcoded in a page
   // Just propping them in for now.
   const { uploadedImage, imageUploader, handleImageUpload } = props;
+  
 
   return (
     <>
       {/*Accepting only files with image type*/}
       <input type="file" id="input" accept="image/*" onChange={handleImageUpload} ref={imageUploader} className={classes.imageUpload} />
       <div>
-        <img className={classes.image} ref={uploadedImage} />
+        <img className={classes.image} src={props.image.data} />
         <br />
-        <Button size="small" onClick={() => imageUploader.current.click()} variant="outlined" color="secondary">Upload Image</Button>
+        <Button size="small" onClick={() => imageUploader.current.click()} variant="outlined" color="secondary" className={classes.uploadBtn}>Upload Image</Button>
       </div>
     </>
   )
@@ -63,9 +66,8 @@ export default function Profile(props) {
     <Container maxWidth="sm">
       <div className={classes.container}>
         <Typography variant="h4" className={classes.heading}>PROFILE</Typography>
-
         {/* TODO: implement profile picture */}
-        {/* <ProfilePicture {...props}/> */}
+        {<ProfilePicture {...props}/>}
 
       </div>
 

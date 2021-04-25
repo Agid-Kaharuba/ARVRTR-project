@@ -37,3 +37,15 @@ export const updateUser = async (token, userId, body) => {
 	);
 	return res;
 }
+
+export const uploadImage = async (fileData) => {
+  const res = await axios.post (`${API_HOST}/upload`, fileData, {
+    headers: {'Content-Type': 'multipart/form-data'},
+  });
+  return res;
+};
+
+export const downloadImage = async (username) => {
+  const res = await axios.get (`${API_HOST}/upload/${username}`);
+  return res;
+}

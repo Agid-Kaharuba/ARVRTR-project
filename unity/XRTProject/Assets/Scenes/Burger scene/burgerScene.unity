@@ -946,6 +946,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1629425066}
     m_Modifications:
     - target: {fileID: 129048, guid: afb3a810580d951408d34206296996c1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 129048, guid: afb3a810580d951408d34206296996c1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -4486,6 +4490,10 @@ PrefabInstance:
       value: floor_ceiling_8x8 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 129048, guid: afb3a810580d951408d34206296996c1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 129048, guid: afb3a810580d951408d34206296996c1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -5314,7 +5322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629425066}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5630,7 +5638,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6526078932420169661, guid: f6f99ab265f292a4286155c3d4605ef3, type: 3}
 --- !u!64 &1686150478
@@ -7695,7 +7703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.201
+      value: 0.2202
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7707,11 +7715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.72406703
+      value: 0.9976465
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6897297
+      value: -0.06856687
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -7723,7 +7731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -87.218
+      value: -7.863
       objectReference: {fileID: 0}
     - target: {fileID: 3644116566316347027, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7736,6 +7744,14 @@ PrefabInstance:
     - target: {fileID: 4168450999315772457, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
       propertyPath: m_Name
       value: ketchup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168450999315772457, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959368789184033372, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dd03912a5e4d8444a54345d71a9fa1a, type: 3}

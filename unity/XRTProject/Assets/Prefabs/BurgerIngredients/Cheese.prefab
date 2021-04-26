@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 6694769647334133333}
   m_Layer: 0
   m_Name: Cheese
-  m_TagString: Untagged
+  m_TagString: Food Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,6 +234,7 @@ MonoBehaviour:
   belowStickPoint: {fileID: 7044037446163580052}
   attachmentFlags: 86
   canStackBelow: 1
+  isBoard: 0
 --- !u!65 &6694769647334133333
 BoxCollider:
   m_ObjectHideFlags: 0

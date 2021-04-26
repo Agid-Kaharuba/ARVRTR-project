@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 1545179631429995029}
   m_Layer: 0
   m_Name: TopBun
-  m_TagString: Untagged
+  m_TagString: Food Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   belowStickPoint: {fileID: 9075363473604495608}
   attachmentFlags: 86
   canStackBelow: 1
+  isBoard: 0
 --- !u!65 &1545179631429995029
 BoxCollider:
   m_ObjectHideFlags: 0

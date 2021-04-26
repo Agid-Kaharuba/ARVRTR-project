@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 2506307229108172853}
   m_Layer: 0
   m_Name: Patty
-  m_TagString: Untagged
+  m_TagString: Food Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   belowStickPoint: {fileID: 1109324176056253031}
   attachmentFlags: 86
   canStackBelow: 1
+  isBoard: 0
 --- !u!65 &2506307229108172853
 BoxCollider:
   m_ObjectHideFlags: 0

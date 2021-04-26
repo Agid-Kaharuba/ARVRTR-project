@@ -61,8 +61,7 @@ export default function CreateNewTrainingPage() {
 
   //launch XR training via web, STILL TESTING
   const handleLaunchXR = () => {
-    history.push('xrt-training://?token=${authState.token}')
-    //<Redirect to='xrt-training://'>
+    history.push('/xrt-training://?token=${authState.token}')
   }
 
   return (

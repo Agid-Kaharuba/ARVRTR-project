@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3644116566316347027}
   - component: {fileID: 377558140682101046}
   - component: {fileID: 2511227834265572860}
+  - component: {fileID: 7612187143709608405}
   m_Layer: 0
   m_Name: ketchup
   m_TagString: Untagged
@@ -82,6 +83,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7612187143709608405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168450999315772457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191f7c8488942ee449ccffafc1eec76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sauce: {fileID: 4540859084864834498, guid: 63cb92e5c574fa94f8757c8fba9ce43e, type: 3}
 --- !u!1 &8959368789184033372
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class sauce_detector : MonoBehaviour
 {   
-    private string stackName = "BurgerBoard";  
+    private string tagName = "Food Item";
+    private int count = 0;
+    private bool run = true;
+    public GameObject Sauce;
+    //private GameObject Sauce = GameObject.Find("Sauce");
 
     // Start is called before the first frame update
     void Start()
@@ -17,19 +21,40 @@ public class sauce_detector : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward)*1;
-        //Ray
-        if (Physics.Raycast(transform.position, forward, out hit, 2))
+        Debug.Log(count);
+
+        if (count != 0)
         {
-            Debug.DrawRay(transform.position, forward, Color.green);
-            if (hit.collider.name.Contains(stackName)){
-                Debug.Log("hitting " + hit.collider.name);
-            }
-            /*if (hit.collider.name == "hittingStackCollider")
-            {
-                Debug.Log("hitting" + hit.collider.name);
-            }*/
-            //Debug.Log("Did Hit");
+            count = CountUp();
+
         }
-        
+        else
+        {
+            if (Physics.Raycast(transform.position, forward, out hit, 2))
+            {
+                Debug.DrawRay(transform.position, forward, Color.green);
+                if (hit.collider.tag == tagName)
+                {
+                    count++;
+                    Vector3 pos = hit.transform.position;
+                    Debug.Log("hitting " + hit.collider.name);
+                    GameObject sauceNew = Instantiate(Sauce);
+                    sauceNew.transform.position = new Vector3(pos.x, pos.y, pos.z + (float) 0.2);
+                }
+            }
+        }
+    }
+
+    int CountUp() { // Pauses script for 90 frames otherwise sauce explodes everywhere
+        if (count > 90)
+        {
+            count = 0;
+        }
+        else
+        {
+            count++;
+        }
+        Debug.Log(count);
+        return count;
     }
 }

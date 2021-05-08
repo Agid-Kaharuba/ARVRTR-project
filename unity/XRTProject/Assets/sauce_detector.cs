@@ -21,7 +21,6 @@ public class sauce_detector : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward)*1;
-        Debug.Log(count);
 
         if (count != 0)
         {
@@ -35,6 +34,7 @@ public class sauce_detector : MonoBehaviour
                 Debug.DrawRay(transform.position, forward, Color.green);
                 if (hit.collider.tag == tagName)
                 {
+                    Debug.Log(hit.collider.name);
                     count++;
                     Vector3 pos = hit.transform.position;
                     Debug.Log("hitting " + hit.collider.name);
@@ -54,7 +54,6 @@ public class sauce_detector : MonoBehaviour
         {
             count++;
         }
-        Debug.Log(count);
         return count;
     }
 }

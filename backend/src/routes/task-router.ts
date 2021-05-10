@@ -37,7 +37,7 @@ export const TaskRoute = (app: Express, controller: TaskController) => {
      *        recipe:
      *         type: string
      *         example: recipe01
-     *        type;
+     *        type:
      *         type: string
      *         example: liquid
      *   responses:

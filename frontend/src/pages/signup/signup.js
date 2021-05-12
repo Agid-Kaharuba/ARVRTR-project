@@ -68,6 +68,9 @@ export default function SignUp() {
         if (formState.password !== formState.confirmPassword) {
             setResultState("Passwords do not match")
         }
+        else if(formState.password.length < 6){
+            setResultState("Password will need to have at least 5 characters");
+        }
         else {
             var res;
             try {

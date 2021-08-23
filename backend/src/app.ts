@@ -13,6 +13,7 @@ import ApiInitializer from './initializer';
 import { Routes } from './routes';
 
 const mongoUri = `${config.DATABASE_URL}/${config.DATABASE_NAME}` as string;
+// @ts-ignore
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err) {
     throw err;

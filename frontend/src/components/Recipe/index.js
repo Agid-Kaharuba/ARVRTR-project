@@ -32,28 +32,30 @@ export default function Recipe(props) {
   return (
     <>
       <Box m={5}>
-        <Grid container spacing={2} direction="column" justify="space-between">
-          <Grid>
+        <Grid container spacing={20} direction="column" justify="space-between"
+          style={{display:'grid', gridTemplateColumns: 'auto auto'}}>
+          <Grid style={{width: "25vw"}}>
             <Typography className={classes.bold} variant='h6'>
               Name
             </Typography>
             <TextField value={recipeState.name} id="name" name="name" disabled={!editState} variant="outlined" fullWidth margin='normal' onChange={handleChange} />
-          </Grid>
-          <Grid>
             <Typography className={classes.bold} variant='h6'>
               Category
             </Typography>
-            <TextField value={recipeState.category} id="category" name="category" disabled={!editState} variant="outlined" fullWidth margin='normal' onChange={handleChange} />
+            {/* <TextField value={recipeState.category} id="category" name="category" disabled={!editState} variant="outlined" fullWidth margin='normal' onChange={handleChange} /> */}
+            <select name="category" id="category" onChange={handleChange} value={recipeState.category} disabled={!editState} style={{width: '25vw', height: '4vw', fontSize: '1.2vw'}}>
+              <option> </option>
+              <option value="Burger">Burger</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Drink">Drink</option>
+            </select>
           </Grid>
           <Grid>
-            <Typography className={classes.bold} variant='h6'>
-              Ingredients
-            </Typography>
-            <Box my={2}>
-              <Paper elevation={3}>
+            <div>
+              {/* <Paper elevation={3}> */}
                 <RecipeBuilder edit={editState} ingredients={recipeState.ingredients} onChange={onChangeIngredients} />
-              </Paper>
-            </Box>
+              {/* </Paper> */}
+            </div>
           </Grid>
         </Grid>
       </Box>

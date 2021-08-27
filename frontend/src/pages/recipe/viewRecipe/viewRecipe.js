@@ -79,11 +79,6 @@ export default function ViewRecipe(props) {
                 View Recipe
               </Typography>
             </Grid>
-            <Grid item align="right">
-              <Button variant="contained" style={{ width: 80 }} color={"primary"} size="large" onClick={handleEdit}>
-                {editState ? "Edit" : "Save"}
-              </Button>
-            </Grid>
           </Grid>
           <Divider variant="middle" />
         </Box>

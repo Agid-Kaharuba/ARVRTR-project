@@ -35,9 +35,9 @@ import CreateNewTask from "./pages/task/createtask/createtask.js";
 import CreateTaskGlobal from "./pages/task/createtask/createtaskglobal.js";
 
 // IMPORT RECIPE PAGES
-import RecipesList from "./pages/recipe/recipesList";
-import CreateRecipe from "./pages/recipe/createRecipe";
-import ViewRecipe from "./pages/recipe/viewRecipe";
+import RecipesList from "./pages/recipe/recipesList/recipesList.js";
+import CreateRecipe from "./pages/recipe/createRecipe/createRecipe.js";
+import ViewRecipe from "./pages/recipe/viewRecipe/viewRecipe.js";
 
 // IMPORT STATISTICS PAGES
 import Statistics from "./pages/statistics/statistics.js";

@@ -69,12 +69,7 @@ export default function CreateNewRecipePage() {
           <Grid item>
             <Typography className={classes.bold} variant='h4'>
               Create Recipe
-          </Typography>
-          </Grid>
-          <Grid item align="right">
-            <Button variant="contained" style={{ width: 80 }} color={"primary"} size="large" onClick={handleSubmit}>
-              Save
-            </Button>
+            </Typography>
           </Grid>
         </Grid>
         <Divider variant="middle" />

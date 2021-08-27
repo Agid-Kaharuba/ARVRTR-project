@@ -3,8 +3,8 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { Button, Typography, Box, FormControl, Select, MenuItem, TextField, Divider, Card, CardContent, CardActions, Paper, Grid } from "@material-ui/core";
 import { AuthContext } from "../../context/auth";
 import api from "../../helpers/api";
-
-
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
 
 
 export default function Ingredient(props) {
@@ -17,18 +17,24 @@ export default function Ingredient(props) {
 					ref={provided.innerRef}>
 					<Paper>
 						<Card variant="outlined"
-							style={{ width: "6vw", height: "6vw" }}
+							style={{ width: "14vw", height: "7.2vw" }} //14vw 7.2vw
 						>
 							<CardContent>
-								<Typography color="textSecondary" align="center" gutterBottom>
+								<TableRow>
+									<TableCell>
+										<Typography color="textSecondary" align="center" gutterBottom>
 									{props.ingredient.value}
-								</Typography>
-								<img
-									style={{
-										"max-width":"100%",
-										"max-height":"100%"
-									}}
-									srcset={props.ingredient.src} />
+									</Typography>
+									</TableCell>
+									<TableCell>
+										<img
+										style={{
+											"max-width":"120%", //120
+											"max-height":"120%" //120
+										}}
+										srcset={props.ingredient.src} />
+									</TableCell>
+								</TableRow>
 							</CardContent>
 						</Card>
 					</Paper>

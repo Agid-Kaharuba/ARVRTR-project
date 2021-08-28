@@ -21,6 +21,8 @@ import Lakshva from '../../images/profile-photos/lakshva-sharma.jpg';
 import MitchGif from '../../images/mitchellvr.gif';
 import VanishaGif from '../../images/vanishavr.gif';
 import BryanGif from '../../images/bryanvr.gif';
+import Matthew from '../../images/profile-photos/matt.jpg';
+import Vladimir from '../../images/profile-photos/vlad.jpg';
 import BackButton from "../../components/backbutton";
 
 // import { Link } from "react-router-dom";
@@ -143,8 +145,8 @@ export default function AboutUsPage() {
               alignItems='center'
               justify='center'>
               <Avatar src={Andrew} className={profiles.large} />
-              <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Andrew Do</WhiteTextTypography>
-              <WhiteTextTypography>Front-End Co-Lead</WhiteTextTypography>
+              <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Na Tian</WhiteTextTypography>
+              <WhiteTextTypography>Front-End Developer</WhiteTextTypography>
             </Grid>
           </Grid>
           <Grid item>
@@ -175,9 +177,9 @@ export default function AboutUsPage() {
               direction='column'
               alignItems='center'
               justify='center'>
-              <Avatar src={Agid} className={profiles.large} />
-              <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Agid Kaharuba</WhiteTextTypography>
-              <WhiteTextTypography>Unity/XR Lead</WhiteTextTypography>
+              <Avatar src={Matthew} className={profiles.large} />
+              <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Matthew Barrett</WhiteTextTypography>
+              <WhiteTextTypography>Unity Lead</WhiteTextTypography>
             </Grid>
           </Grid>
           <Grid item>
@@ -199,7 +201,7 @@ export default function AboutUsPage() {
               justify='center'>
               <Avatar src={Herrick} className={profiles.large} />
               <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Herrick Feng</WhiteTextTypography>
-              <WhiteTextTypography>Front-End Co-Lead</WhiteTextTypography>
+              <WhiteTextTypography>Front-End Lead</WhiteTextTypography>
             </Grid>
           </Grid>
         </Grid>
@@ -265,6 +267,28 @@ export default function AboutUsPage() {
               <Avatar src={Lakshva} className={profiles.large} />
               <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Lakshya Sharma</WhiteTextTypography>
               <WhiteTextTypography>Back-End Developer</WhiteTextTypography>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid
+              container
+              direction='column'
+              alignItems='center'
+              justify='center'>
+              <Avatar src={Vladimir} className={profiles.large} />
+              <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Vladimir Poshevelya</WhiteTextTypography>
+              <WhiteTextTypography>Unity Developer</WhiteTextTypography>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid
+              container
+              direction='column'
+              alignItems='center'
+              justify='center'>
+              <Avatar src={Agid} className={profiles.large} />
+              <WhiteTextTypography style={{ fontWeight: '600', fontSize: '1.2rem' }}>Agid Kaharuba</WhiteTextTypography>
+              <WhiteTextTypography>Unity Developer</WhiteTextTypography>
             </Grid>
           </Grid>
         </Grid>

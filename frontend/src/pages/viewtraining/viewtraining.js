@@ -6,6 +6,7 @@ import Tasks from "../../components/Task/list.js";
 import { AuthContext } from "../../context/auth";
 import api from "../../helpers/api";
 import PlaceholderImage from "../../components/uploadImage/index.js";
+import bbt from "../../images/bbt.jpg";
 
 const useStyles = makeStyles({
     bold: {
@@ -29,6 +30,9 @@ const useStyles = makeStyles({
     trainDiv: {
         width: "80%",
     },
+    imagedisplay:{
+        display:"none",
+    }
 })
 
 
@@ -40,6 +44,7 @@ export default function ViewCourse(props) {
     const [usersState, setUsersState] = useState(undefined);
     const [courseState, setCourseState] = useState(undefined);
     const [editState, setEditState] = useState(true);
+    const [imagesrc, setImagesrc] = useState(bbt);
 
     // Get User Data
     const fetchUserData = async () => {
@@ -76,6 +81,11 @@ export default function ViewCourse(props) {
         setCourseState({ ...courseState, type: value })
     }
 
+    const imageChange = (e) => {
+        setImagesrc(e);
+        setCourseState({ ...courseState, image: e })
+    }
+
     const handleEdit = async (e) => {
         if (!editState) {
             console.log(courseState)
@@ -88,6 +98,7 @@ export default function ViewCourse(props) {
         const res = await api.course.get(authState.token, courseId);
         console.log(res.data);
         setCourseState(res.data);
+        setImagesrc(res.data.image||bbt);
     };
 
     useEffect(() => {
@@ -117,30 +128,24 @@ export default function ViewCourse(props) {
                     </Grid>
                     <Divider variant="middle" />
                 </Box>
-                <Box m={5}>
-                    <Grid container spacing={2} direction="column" justify="space-between">
-                        <Grid>
-                            <div className={classes.flex}>
-                                <div className={classes.container}>
-                                    <PlaceholderImage />
-                                </div>
-                                <div className={classes.trainDiv}>
-                                    <form>
-                                        <Typography className={classes.bold} variant='h6'>
-                                            Training Name
-                                        </Typography>
-                                        <TextField value={courseState.name} id="name" disabled={editState} variant="outlined" fullWidth margin='normal' onChange={handleChange} />
-                                        <Typography className={classes.bold} variant='h6'>
-                                            Training Description
-                                        </Typography>
-                                        <TextField value={courseState.description} id="description" disabled={editState} variant="outlined" fullWidth margin='normal' multiline rows={10} onChange={handleChange} />
-                                    </form>
-                                </div>
-                            </div>
-
+                <div>
+                    <Grid container>
+                        <Grid item sm={12} md={3}>
+                            <PlaceholderImage imageChange={imageChange} imagesrc={imagesrc} editState={editState}/>
+                        </Grid>
+                        <Grid item sm={12} md={9}>
+                            <Typography className={classes.bold} variant='h6'>
+                                Training Name
+                            </Typography>
+                            <TextField value={courseState.name} id="name" disabled={editState} variant="outlined" fullWidth margin='normal' onChange={handleChange} />
+                            <Typography className={classes.bold} variant='h6'>
+                                Training Description
+                            </Typography>
+                            <TextField value={courseState.description} id="description" disabled={editState} variant="outlined" fullWidth margin='normal' multiline rows={10} onChange={handleChange} />
                         </Grid>
                     </Grid>
-                </Box>
+                </div>
+
                 <Box m={5}>
                     <Typography className={classes.bold} variant='h6'>
                         Assigned Users

@@ -39,6 +39,7 @@ export default class CourseController {
     const newCourseRequest = new Course({
       name: body.name,
       description: body.description,
+      image: body.image,
       tasks: body.tasks,
       assignedEmployees: body.assignedEmployees,
     } as any);
@@ -76,9 +77,9 @@ export default class CourseController {
     const { data, userId, taskId, courseId, completed, score } = req.body;
     const newProgressRequest = new Progress({
       data: data,
-      userId: new mongoose.Types.ObjectId(userId),
-      taskId: new mongoose.Types.ObjectId(taskId),
-      courseId: new mongoose.Types.ObjectId(courseId),
+      userId: (userId),
+      taskId: (taskId),
+      courseId: (courseId),
       completed: completed,
       score: score
     });
